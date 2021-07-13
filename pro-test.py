@@ -14,24 +14,28 @@ app = Flask(__name__)
 app.config.from_object(config)   #flask加载配置文件,，配置sqlalchemy
 db = SQLAlchemy(app)
 print(db)
-print(db)
 
+class User_appkey(db.Model):
+    __tablename__ = "user_appkey"
+    id = db.Column(db.BigInteger)
+    app_key = db.Column(db.String(255), unique = True)
+    app_secret = db.Column(db.String(255), unique = True)
+    user_id = db.Column(db.BigInteger,  primary_key = True)
+    created_at = db.Column(db.DateTime(3))
+    updated_at = db.Column(db.DateTime(3))
+    deleted_at = db.Column(db.DateTime(3))
 
-class Role(db.Model):
-    __tablename__ = 'roles'
-    id = db.Column(db.BigInteger, primary_key = True)
-    name = db.Column(db.String(255), unique = True)
-
-    users = db.relationship('User', backref = 'role')
+    users = db.relationship("User", backref = "associated")
 
     def __repr__(self):
-        return 'Role: %s %s' % (self.id, self.name)
+        return "User_appkey: %s %s %s %s %s %s %s" % (self.id, self.app_key, self.app_secret, 
+                                                        self.user_id, self.created_at, self.updated_at,self.deleted_at)
 
 
 class User(db.Model):
-    __tablename__ = 'users'
+    __tablename__ = "users"
     id = db.Column(db.BigInteger, primary_key = True)
-    name = db.Column(db.String(255), unique = True, index=True)
+    name = db.Column(db.String(255), unique = True)
     mobile = db.Column(db.BigInteger, unique = True)
     email = db.Column(db.String(100), unique = True)
     password = db.Column(db.String(255), unique = True)
@@ -41,12 +45,32 @@ class User(db.Model):
     updated_at = db.Column(db.DateTime(3))
     deleted_at = db.Column(db.DateTime(3))
 
-    role_id = db.Column(db.Integer, db.ForeignKey("roles.id"))
+    associated_id = db.Column(db.String,db.String, db.ForeignKey("user_appkey.app_key", "user_appkey.app_secret"),  nullable=False)
 
     def __repr__(self):
-        return "User: %s %s %s %s %s %s %s %s %s %s %s" % (self.id, self.name, self.mobile, self.email, self.password,
-                                                        self.token, self.token_expire, self.created_at,
-                                                        self.updated_at, self.deleted_at, self.role_id)
+        return "User: %s %s %s %s %s %s %s %s %s %s" % (self.id, self.name, self.mobile, self.email, self.password,
+                                                            self.token, self.token_expire, self.created_at,
+                                                            self.updated_at, self.deleted_at)
+
+
+class Qa_question(db.Model):
+    __tablename__ = "qa_questions"
+    id = db.Column(db.BigInteger)
+    question = db.Column(db.String(255), unique = True)
+    answer = db.Column(db.String(255), unique = True)
+    pid = db.Column(db.Intege, unique = True)
+    user_id = db.Column(db.BigInteger, primary_key = True)
+    type = db.Column(db.BigInteger)
+    created_at = db.Column(db.DateTime(3))
+    updated_at = db.Column(db.DateTime(3))
+    deleted_at = db.Column(db.DateTime(3))
+
+
+    def __repr__(self):
+        return "Qa_question: %s %s %s %s %s %s %s %s %s" % (self.id, self.question, self.answer, self.pid,
+                                                                self.user_id, self.type, self.created_at,
+                                                                self.updated_at, self.deleted_at)
+
 
 
 @app.route("/")
@@ -57,7 +81,7 @@ def hello():
 if __name__ == '__main__':
 
     #db.drop_all()
-    db.create_all()
+    #db.create_all()
 
     role = Role(name = "yin")
     db.session.add(role)
