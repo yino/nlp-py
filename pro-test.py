@@ -14,6 +14,7 @@ app = Flask(__name__)
 app.config.from_object(config)   #flask加载配置文件,，配置sqlalchemy
 db = SQLAlchemy(app)
 print(db)
+print(db)
 
 
 class Role(db.Model):
