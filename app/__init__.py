@@ -7,5 +7,8 @@ app = Flask(__name__)
 db = init_db(app)
 init_route(app)
 
+from .middleware import *
+
+
 def create_app():
     return app
