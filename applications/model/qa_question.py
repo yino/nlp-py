@@ -1,4 +1,4 @@
-from app import db
+from . import db
 
 
 class Qa_question(db.Model):
@@ -13,5 +13,5 @@ class Qa_question(db.Model):
     updated_at = db.Column(db.DateTime(3))
     deleted_at = db.Column(db.DateTime(3))
 
-    def __repr__(self):
-        return self.name
+    # def __repr__(self):
+    #     return self.name

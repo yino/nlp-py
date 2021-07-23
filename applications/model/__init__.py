@@ -7,7 +7,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 pymysql.install_as_MySQLdb()
 
+db = SQLAlchemy()
+
 def init_db(app: Flask):
     app.config.from_object(mysql)
-    db = SQLAlchemy(app)
-    return db
+    db.init_app(app)

@@ -1,4 +1,4 @@
-from app import db
+from . import db
 
 
 class User_appkey(db.Model):
@@ -13,6 +13,6 @@ class User_appkey(db.Model):
     updated_at = db.Column(db.DateTime(3))
     deleted_at = db.Column(db.DateTime(3))
 
-    def __repr__(self):
-       return self.name
+    # def __repr__(self):
+    #    return self.name
     
