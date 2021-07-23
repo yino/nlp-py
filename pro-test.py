@@ -73,9 +73,9 @@ def hello():
 
 
 def GetUserId(Ak, As):
-    data = User_appkey.query.filter(User_appkey.app_key==Ak).filter(User_appkey.app_secret==As).all()
-    for val in data:
-        print(val.id, val.user_id)
+    data = User_appkey.query.filter(User_appkey.app_key==Ak).filter(User_appkey.app_secret==As).first()
+    
+    print(data)
 
 if __name__ == '__main__':
 
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     # print(all)
     # cou = User.query.count()
     # print(cou)
-    # GetUserId(Ak="3e76e966f02f8b821e0402829b4f0a57",As="f74fd7a13cd98b1aa53d02b7efc10694")
-    app.run(debug=True)
+    GetUserId(Ak="3e76e966f02f8b821e0402829b4f0a571",As="f74fd7a13cd98b1aa53d02b7efc10694")
+    # app.run(debug=True)
     #server = pywsgi.WSGIServer(('0.0.0.0',(config.PORT)),app)
     #erver.serve_forever()
