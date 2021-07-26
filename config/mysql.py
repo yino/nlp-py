@@ -6,3 +6,4 @@ SQLALCHEMY_DATABASE_URI = "{}+{}://{}:{}@{}:{}/{}?charset=utf8mb4".format(
     config["mysql"]["PASSWORD"], config["mysql"]["HOST"], config["mysql"]["PORT"], 
     config["mysql"]["DATEBASE"])
 SQLALCHEMY_TRACK_MODIFICATIONS = config["mysql"]["SQLALCHEMY_TRACK_MODIFICATIONS"]
+SQLALCHEMY_ECHO = True
