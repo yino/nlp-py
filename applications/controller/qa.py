@@ -10,3 +10,7 @@ qaApp = Blueprint("qa",__name__,url_prefix="/qa")
 def list():
     data = Qa.getListByUserId(g.user_id)
     return  resp.response(code=resp.SUCCESS, data=data)
+
+@qaApp.route("/match")
+def match():
+    pass
