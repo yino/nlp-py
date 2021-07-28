@@ -15,8 +15,8 @@ services:
         pip install -r requirements.txt
         python main.py
     ports:
-      - "9522:8000"
+      - "9523:8000"
     tty: true
     environment:
       - env=prod
-    container_name: nlp
+    container_name: nlp-py
