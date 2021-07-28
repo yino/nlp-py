@@ -7,7 +7,7 @@ services:
     restart: always
     image: python:3.6
     volumes:
-      - .:/go/src/nlp
+      - .:/code
     command: 
       - sh
       - -c
