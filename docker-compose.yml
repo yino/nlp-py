@@ -1,0 +1,22 @@
+version: "2"
+services:
+  nlp-py:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    image: python:3.6
+    volumes:
+      - .:/go/src/nlp
+    command: 
+      - sh
+      - -c
+      - |
+        pip install -r requirements.txt
+        python main.py
+    ports:
+      - "9522:8000"
+    tty: true
+    environment:
+      - env=prod
+    container_name: nlp
