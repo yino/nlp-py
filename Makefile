@@ -8,4 +8,4 @@ docker:
 	docker-compose up
 	
 gunicorn:
-	gunicorn -c gunicorn.conf.py main:applications  --preload
+	gunicorn -c gunicorn.conf.py main:app  --preload
