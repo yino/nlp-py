@@ -1,3 +1,5 @@
+from gevent.wsgi import WSGIServer
+
 from applications import create_app
 from config import config
 
@@ -7,5 +9,7 @@ def status():
     return "ok"
 
 if __name__ == '__main__':
-    app.run(debug=config['app']['DEBUG'],host=config["app"]["HOST"], port=config["app"]["PORT"])
+    http_server = WSGIServer(('', config["app"]["PORT"]), app)
+    http_server.serve_forever()
+    # app.run(debug=config['app']['DEBUG'],host=config["app"]["HOST"], port=config["app"]["PORT"])
 

@@ -6,5 +6,5 @@ WORKDIR /code
 
 COPY requirements.txt /requirements.txt
 
-RUN python3 -m pip install --upgrade pip && pip install -i https://mirrors.aliyun.com/pypi/simple/ numpy && pip install -i https://mirrors.aliyun.com/pypi/simple/ uwsgi && pip install -i https://mirrors.aliyun.com/pypi/simple/ pandas && pip install -i https://mirrors.aliyun.com/pypi/simple/ gensim\
+RUN python3 -m pip install --upgrade pip && pip install -i https://mirrors.aliyun.com/pypi/simple/ numpy && pip install -i https://mirrors.aliyun.com/pypi/simple/ gunicorn && pip install -i https://mirrors.aliyun.com/pypi/simple/ pandas && pip install -i https://mirrors.aliyun.com/pypi/simple/ gensim\
 && pip install -r /requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
