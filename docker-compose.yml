@@ -19,4 +19,4 @@ services:
     environment:
       - ENV=prod
       - CONFIG_PATH=/code
-    container_name: nlp-py
+    container_name: sk532359025/nlp_py:latest
