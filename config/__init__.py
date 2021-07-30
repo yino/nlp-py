@@ -12,4 +12,5 @@ else:
 
 if  env_path is None or len(env_path) == 0 or env_path == '':
     env_path = " D:\\project\\nlp-model"
+print(env_path+"/"+filename)
 config.read(env_path+"/"+filename,"utf8")
