@@ -1,4 +1,4 @@
-from gevent.wsgi import WSGIServer
+from gevent.pywsgi import WSGIServer
 
 from applications import create_app
 from config import config
