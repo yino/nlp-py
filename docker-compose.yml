@@ -1,11 +1,8 @@
 version: "2"
 services:
   nlp-py:
-    build:
-      context: .
-      dockerfile: Dockerfile
     restart: always
-    image: nlp-py:1.0
+    image: sk532359025/nlp_py
     volumes:
       - .:/code
     command: 
