@@ -9,7 +9,7 @@ services:
       - sh
       - -c
       - |
-        uwsgi --ini uwsgi.ini
+       make gunicorn
     ports:
       - "9523:8000"
     tty: true
