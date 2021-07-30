@@ -12,7 +12,8 @@ services:
       - sh
       - -c
       - |
-        source venv/bin/activate 
+        python3 -m pip install --upgrade pip
+        pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
         python3 main.py
     ports:
       - "9523:8000"
