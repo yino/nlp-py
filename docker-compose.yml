@@ -12,7 +12,7 @@ services:
       - sh
       - -c
       - |
-        uwsgi -i uwsgi.ini
+        uwsgi --ini uwsgi.ini
     ports:
       - "9523:8000"
     tty: true
