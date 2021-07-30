@@ -12,7 +12,7 @@ services:
       - sh
       - -c
       - |
-        uwsgi --ini uwsgi.ini
+        python3 main.py
     ports:
       - "9523:8000"
     tty: true
