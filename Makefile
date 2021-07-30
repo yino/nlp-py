@@ -6,5 +6,6 @@ build:
 
 docker:
 	docker-compose up
+	
 gunicorn:
 	gunicorn -c gunicorn.config.py applications:applications
