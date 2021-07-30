@@ -1,4 +1,4 @@
-workers = 5
+workers = 2
 worker_class = "gevent"
 bind = "0.0.0.0:8000"
 errorlog = 'log/gunicorn.error.log'
