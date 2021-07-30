@@ -1,6 +1,9 @@
 /venv
 /model
-*/__pycache__
 *.ini
 !template.ini
 !uwsgi.ini
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
