@@ -5,3 +5,4 @@ errorlog = 'log/gunicorn.error.log'
 accesslog = 'log/gunicorn.access.log'
 access_log_format = '%(h) -  %(t)s - %(u)s - %(s)s %(H)s'
 error_log_format = '%(h) -  %(t)s - %(u)s - %(s)s %(H)s'
+daemon = True
