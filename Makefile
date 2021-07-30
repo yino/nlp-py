@@ -8,4 +8,4 @@ docker:
 	docker-compose up
 	
 gunicorn:
-	gunicorn -c gunicorn.config.py applications:applications
+	gunicorn -c gunicorn.conf.py applications:applications
