@@ -13,11 +13,11 @@ services:
       - -c
       - |
         python3 -m pip install --upgrade pip
-        pip install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy
-        pip install -i https://pypi.tuna.tsinghua.edu.cn/simple uwsgi
-        pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pandas
-        pip install -i https://pypi.tuna.tsinghua.edu.cn/simple gensim
-        pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+        pip install -i http://mirrors.aliyun.com/pypi/simple/ numpy
+        pip install -i http://mirrors.aliyun.com/pypi/simple/ uwsgi
+        pip install -i http://mirrors.aliyun.com/pypi/simple/ pandas
+        pip install -i http://mirrors.aliyun.com/pypi/simple/ gensim
+        pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple/
         uwsgi -i uwsgi.ini
     ports:
       - "9523:8000"
