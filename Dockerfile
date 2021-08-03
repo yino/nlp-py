@@ -9,7 +9,8 @@ RUN apt-get install -y python3.7 && \
     apt-get install -y python3-pip && \
     apt-get install -y git
 
-RUN mkdir /src && git clone https://oauth2:cae0e4e2613465f9734ccba00eacaad5@gitee.com/sun17ya/nlp-model.git /src && \
+RUN mkdir /src && \
+    git clone https://oauth2:cae0e4e2613465f9734ccba00eacaad5@gitee.com/sun17ya/nlp-model.git /src && \
     git checkout -b feature/sun-20210721 origin/feature/sun-20210721
 
 ADD requirements.txt /src/requirements.txt
