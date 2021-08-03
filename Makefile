@@ -1,4 +1,5 @@
 Project := nlp-model
+
 run:
 	python main.py
 
@@ -13,4 +14,6 @@ gunicorn:
 
 up:
 	docker-compose up -d
-	
+
+bash:
+	docker-compose exec
