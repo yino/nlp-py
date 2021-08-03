@@ -10,3 +10,6 @@ start:
 gunicorn:
 	gunicorn -c gunicorn.conf.py main:app  --preload
 
+up:
+	docker-compose up -d
+	
