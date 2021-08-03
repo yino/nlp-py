@@ -16,4 +16,4 @@ up:
 	docker-compose up -d
 
 bash:
-	docker-compose exec
+	docker-compose exec nlp-py bash
