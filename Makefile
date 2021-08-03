@@ -8,6 +8,9 @@ build:
 
 start:
 	docker-compose up
+
+stop:
+	docker-compose stop
 	
 #gunicorn -c $(Project)/gunicorn.conf.py main:app  --preload
 up:
