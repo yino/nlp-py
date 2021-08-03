@@ -1,10 +1,16 @@
-FROM python:3.7
+FROM ubuntu:20.04
 
-LABEL maintainer="Yino <m15829090357@163.com>"
+ARG DEBIAN_FRONTEND=noninteractive
 
-WORKDIR /code
+RUN sed -i 's/ports.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \ 
+    apt-get update
 
-COPY requirements.txt /requirements.txt
+RUN apt-get install -y python3.7 && \
+    apt-get install -y python3-pip && \
+    apt-get install -y git && \
+    cd /src && \
+    git clone https://oauth2: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@github.com/yino/nlp-py
 
-RUN python3 -m pip install --upgrade pip && pip install -i https://mirrors.aliyun.com/pypi/simple/ numpy && pip install -i https://mirrors.aliyun.com/pypi/simple/ gunicorn && pip install -i https://mirrors.aliyun.com/pypi/simple/ pandas && pip install -i https://mirrors.aliyun.com/pypi/simple/ gensim\
-&& pip install -r /requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ADD requirements.txt /src/requirements.txt
+
+RUN pip install -i https://mirrors.aliyun.com/pypi/simple/ numpy && pip install -r /src/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ 
