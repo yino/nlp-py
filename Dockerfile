@@ -17,3 +17,5 @@ RUN git clone https://oauth2:cae0e4e2613465f9734ccba00eacaad5@gitee.com/sun17ya/
 RUN pip install -i https://mirrors.aliyun.com/pypi/simple/ numpy &&  pip install -r /nlp-model/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ 
 
 RUN pip list 
+
+RUN pip install gunicorn -i https://mirrors.aliyun.com/pypi/simple
