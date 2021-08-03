@@ -1,3 +1,4 @@
+Project := nlp-model
 run:
 	python main.py
 
@@ -8,7 +9,7 @@ start:
 	docker-compose up
 	
 gunicorn:
-	gunicorn -c gunicorn.conf.py main:app  --preload
+	gunicorn -c $(Project)/gunicorn.conf.py main:app  --preload
 
 up:
 	docker-compose up -d
