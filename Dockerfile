@@ -13,5 +13,7 @@ RUN apt-get install -y python3.7 && \
     git clone https://oauth2:cae0e4e2613465f9734ccba00eacaad5@gitee.com/sun17ya/nlp-model.git && \
     cd nlp-model && \
     git checkout -b feature/sun-20210721 origin/feature/sun-20210721
-    
+
+RUN cd nlp-model && \ 
+    git pull
 RUN pip install -r /nlp-model/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
