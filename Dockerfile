@@ -23,7 +23,10 @@ RUN cp /nlp-model/template.ini  /nlp-model/prod.ini && \
     git pull
 
 RUN touch /nlp-model/log/access_print.log && \
-    touch /nlp-model/log/error_print.log
+    touch /nlp-model/log/error_print.log && \
+    git pull
+
+RUN git pull
 
 ENV ENV prod
 ENV CONFIG_PATH /nlp-model
