@@ -18,11 +18,8 @@ RUN cd nlp-model && \
     git pull
 RUN pip install -r /nlp-model/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 
-RUN cp /nlp-model/template.ini  /nlp-model/prod.ini && \ 
-    cd nlp-model && \ 
-    git pull
-
-RUN touch /nlp-model/log/access_print.log && \
+RUN cp /nlp-model/template.ini  /nlp-model/prod.ini && \
+    touch /nlp-model/log/access_print.log && \
     touch /nlp-model/log/error_print.log
 
 RUN cd nlp-model && \ 
