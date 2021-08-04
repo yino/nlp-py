@@ -12,7 +12,9 @@ services:
       - sh
       - -c
       - |
-        gunicorn -c /nlp-model/gunicorn.conf.py main:app  --preload
+        gunicorn main:app -c gunicorn_config.py \
+        --access-logfile=/nlp_model/log/access_print.log \
+        --error-logfile=/nlp_model/log/error_print.log
     ports:
       - "9523:8000"
     tty: true
