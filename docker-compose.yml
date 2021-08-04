@@ -19,5 +19,4 @@ services:
     tty: true
     environment:
       - ENV=prod
-      - CONFIG_PATH=/code
     container_name: nlp-py
