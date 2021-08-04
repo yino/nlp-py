@@ -26,7 +26,8 @@ RUN touch /nlp-model/log/access_print.log && \
     touch /nlp-model/log/error_print.log && \
     git pull
 
-RUN git pull
+RUN cd nlp-model && \ 
+    git pull
 
 ENV ENV prod
 ENV CONFIG_PATH /nlp-model
