@@ -23,6 +23,7 @@ RUN cp /nlp-model/template.ini  /nlp-model/prod.ini
 RUN touch nlp-model/log/gunicorn_error.log && \
     touch nlp-model/log/gunicorn_access.log && \
     chmod -R 777 nlp-model/log
+
 RUN cd nlp-model && \ 
     git pull 
 
