@@ -20,7 +20,9 @@ RUN pip install -r /nlp-model/requirements.txt -i https://mirrors.aliyun.com/pyp
 
 RUN cp /nlp-model/template.ini  /nlp-model/prod.ini
 
-RUN chmod -R 777 nlp-model/log
+RUN chmod -R 777 nlp-model/log && \
+    touch nlp-model/log/gunicorn_error.log && \
+    touch nlp-model/log/gunicorn_access.log
 
 RUN cd nlp-model && \ 
     git pull
