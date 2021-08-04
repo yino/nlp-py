@@ -24,7 +24,7 @@ RUN touch nlp-model/log/gunicorn_error.log && \
     touch nlp-model/log/gunicorn_access.log && \
     chmod -R 777 nlp-model/log
 RUN cd nlp-model && \ 
-    git pull
+    git pull 
 
 ENV ENV prod
 ENV CONFIG_PATH /nlp-model
