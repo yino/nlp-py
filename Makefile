@@ -4,17 +4,17 @@ run:
 	python main.py
 
 build:
-	docker-compose build
+	sudo docker-compose build
 
 start:
-	docker-compose up
+	sudo docker-compose up
 
 stop:
-	docker-compose stop
+	sudo docker-compose stop
 	
 #gunicorn -c $(Project)/gunicorn.conf.py main:app  --preload
 up:
-	docker-compose up -d
+	sudo docker-compose up -d
 
 bash:
-	docker-compose exec nlp-py bash
+	sudo docker-compose exec nlp-py bash

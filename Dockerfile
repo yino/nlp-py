@@ -30,5 +30,8 @@ RUN cd nlp-model && \
 RUN cd nlp-model && \ 
     git pull
 
+RUN cd nlp-model && \ 
+    git pull
+
 ENV ENV prod
 ENV CONFIG_PATH /nlp-model
