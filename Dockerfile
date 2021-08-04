@@ -18,7 +18,7 @@ RUN cd nlp-model && \
     git pull
 RUN pip install -r /nlp-model/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 
-RUN cp template.ini prod.ini && git pull
+RUN cp /nlp-model/template.ini  /nlp-model/prod.ini && git pull
 
 ENV ENV prod
 ENV CONFIG_PATH /nlp-model
