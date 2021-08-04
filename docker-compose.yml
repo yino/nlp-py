@@ -12,8 +12,8 @@ services:
       - sh
       - -c
       - |
-        ls -a /nlp-model/log
-        gunicorn -c /nlp-model/gunicorn.conf.py main:app  --preload
+        cd /nlp-model
+        gunicorn -c gunicorn.conf.py main:app  --preload
     ports:
       - "9523:8000"
     tty: true
