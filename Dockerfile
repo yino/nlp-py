@@ -22,6 +22,3 @@ RUN apt-get install -y python3.7 && \
     touch nlp-model/log/gunicorn_access.log && \
     chmod -R 777 nlp-model/log && \
     cp /nlp-model/template.ini  /nlp-model/prod.ini
-
-ENV ENV prod
-ENV CONFIG_PATH /nlp-model

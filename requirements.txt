@@ -1,7 +1,0 @@
-Flask==2.0.1
-PyMySQL==1.0.2
-gevent==21.1.2
-nlp_tfidf==1.5.7
-Werkzeug==2.0.1
-SQLAlchemy==1.4.20
-Flask_SQLAlchemy==2.5.1
