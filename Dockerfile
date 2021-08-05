@@ -2,6 +2,10 @@ FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+ENV ENV prod
+
+ENV CONFIG_PATH /nlp-model
+
 RUN sed -i 's/ports.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \ 
     apt-get update
 
@@ -12,26 +16,12 @@ RUN apt-get install -y python3.7 && \
     pip install gunicorn -i https://mirrors.aliyun.com/pypi/simple && \
     git clone https://oauth2:cae0e4e2613465f9734ccba00eacaad5@gitee.com/sun17ya/nlp-model.git && \
     cd nlp-model && \
-    git checkout -b feature/sun-20210721 origin/feature/sun-20210721
-
-RUN cd nlp-model && \ 
-    git pull
-RUN pip install -r /nlp-model/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
-
-RUN cp /nlp-model/template.ini  /nlp-model/prod.ini
-
-RUN touch nlp-model/log/gunicorn_error.log && \
+    git checkout -b feature/sun-20210721 origin/feature/sun-20210721 && \
+    pip install -r /nlp-model/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ && \
+    touch nlp-model/log/gunicorn_error.log && \
     touch nlp-model/log/gunicorn_access.log && \
-    chmod -R 777 nlp-model/log
-
-RUN cd nlp-model && \ 
-    git pull
-
-RUN cd nlp-model && \ 
-    git pull
-
-RUN cd nlp-model && \ 
-    git pull
+    chmod -R 777 nlp-model/log && \
+    cp /nlp-model/template.ini  /nlp-model/prod.ini
 
 ENV ENV prod
 ENV CONFIG_PATH /nlp-model

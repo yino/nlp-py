@@ -27,7 +27,10 @@ class Qa:
         for val in data:
             question_list.append(val['question'])
             answer_list.append(val['answer'])
-        return Tfidf.save_model(question_list=question_list,answer_list=answer_list)
+        print(question_list)
+        res = Tfidf.save_model(question_list=question_list,answer_list=answer_list)
+        print(res)
+        return res
 
     def match(self,user_id,input_question):
         Tfidf = nlp_tfidf.Tfidf(work_dir="model/qa/%d" % (user_id), work_file_prefix=str(user_id))
