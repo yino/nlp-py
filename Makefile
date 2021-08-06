@@ -18,3 +18,6 @@ up:
 
 bash:
 	sudo docker-compose exec nlp-py bash
+
+ps:
+	sudo docker-compose ps
