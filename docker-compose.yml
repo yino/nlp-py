@@ -9,7 +9,7 @@ services:
     volumes:
       - ./log:/nlp-model/log
       - ./model:/nlp-model/model
-      - ./prod.ini:/nlp-model/prod.ini
+      - ./prod.ini:/nlp-model/prod.ini:rw
     command: 
       - sh
       - -c
