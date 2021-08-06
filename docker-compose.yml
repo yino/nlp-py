@@ -14,6 +14,7 @@ services:
       - -c
       - |
         cd /nlp-model
+        git pull
         gunicorn -c /nlp-model/gunicorn.conf.py main:app  --preload
     ports:
       - "9523:8000"
