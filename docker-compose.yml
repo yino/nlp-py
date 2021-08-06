@@ -9,14 +9,13 @@ services:
     volumes:
       - ./log:/nlp-model/log
       - ./model:/nlp-model/model
-      - prod.ini:/nlp-model/prod.ini
+      - ./prod.ini:/nlp-model/prod.ini
     command: 
       - sh
       - -c
       - |
         cd /nlp-model
         git pull
-
         gunicorn -c /nlp-model/gunicorn.conf.py main:app  --preload
     ports:
       - "9523:8000"
