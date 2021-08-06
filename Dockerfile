@@ -21,3 +21,5 @@ RUN apt-get install -y python3.7 && \
     touch $CONFIG_PATH/log/gunicorn_access.log && \
     chmod -R 777 $CONFIG_PATH/log && \
     cp $CONFIG_PATH/template.ini  $CONFIG_PATH/prod.ini
+
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
