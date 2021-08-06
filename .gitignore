@@ -1,5 +1,4 @@
 /venv
-/model
 *.ini
 !template.ini
 !uwsgi.ini
