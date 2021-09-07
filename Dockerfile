@@ -19,6 +19,7 @@ RUN apt-get install -y python3.7 && \
     pip install -r $CONFIG_PATH/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ && \
     touch $CONFIG_PATH/log/gunicorn_error.log && \
     touch $CONFIG_PATH/log/gunicorn_access.log && \
-    chmod -R 777 $CONFIG_PATH/log
+    chmod -R 777 $CONFIG_PATH/log && \
+    cp template.ini prod.ini
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
